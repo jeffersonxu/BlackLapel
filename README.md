@@ -9,6 +9,11 @@ Go into directory and just type this command:
 npm install
 ```
 
+## Running
+```javascript
+node index.js 
+```
+
 ## Packages
 [request](https://www.npmjs.com/package/request)
 and
