@@ -10,5 +10,6 @@ npm install
 ```
 
 ## Packages
-⋅⋅*request
-⋅⋅*Array-Sort
+[request](https://www.npmjs.com/package/request)
+[array-sort](https://www.npmjs.com/package/array-sort)
+
