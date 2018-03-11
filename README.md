@@ -16,6 +16,3 @@ node index.js
 
 ## Packages
 [request](https://www.npmjs.com/package/request)
-and
-[array-sort](https://www.npmjs.com/package/array-sort)
-
