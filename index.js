@@ -10,20 +10,18 @@ const rl = readline.createInterface({
 //API Call
 request('https://blacklapel.com/api/product/category/suits', function (error, response, body) {
 	var dict = {}; 
+
  	var result = JSON.parse(body);
+ 	var data = result[0].data;
 
 	//Data Parsing
-	for(var item in result){
-		if(result.hasOwnProperty(item)){
-			var obj = result[item].data;
-
-			for(var key in obj){
-				var suit = obj[key].row[0];
-
-				if(suit.hasOwnProperty("_mageid") && suit.name != "Suits")
-					dict[key] = suit;
-			}
-		}
+	for(var key in data){
+		if(data.hasOwnProperty(key)){
+			var suit = data[key].row[0];
+			
+			if(suit.hasOwnProperty("_mageid") && suit.name != "Suits")
+				dict[key] = suit;
+		}	
 	}
 
 	rl.question('What color suit would you like to see or type (all) to see every choice available:\n', (answer) => {
