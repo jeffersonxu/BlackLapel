@@ -53,12 +53,22 @@ request('https://blacklapel.com/api/product/category/suits', function (error, re
 	  	var counter = 0;
 
 		if(answer == "all"){
+			var temp = [];
+
 			for(var prop in dict){
 				var suits = dict[prop];
 
 				for(var suit in suits)
-					console.log("$" + suits[suit].price + "\t: " + suits[suit].name);
+					temp.push(suits[suit]);
 			}
+
+			var sortedAll = arraySort(temp, "name");
+			var finalAll = removeDuplicates(sortedAll, "name");
+
+			finalAll.forEach(function(suit) {
+				console.log("$" + suit.price + "\t: " + suit.name);
+				counter++;
+			});
 		}
 		else{
 			if(dict[answer]){
@@ -75,3 +85,9 @@ request('https://blacklapel.com/api/product/category/suits', function (error, re
 	    rl.close();
 	});
 });
+
+function removeDuplicates(myArr, prop) {
+    return myArr.filter((obj, pos, arr) => {
+        return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
+    });
+}
