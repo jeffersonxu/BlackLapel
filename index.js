@@ -43,6 +43,12 @@ request('https://blacklapel.com/api/product/category/suits', function (error, re
 		}	
 	}
 
+	//Sorting
+	for(var x in dict){
+		var sorted = arraySort(dict[x], "name");
+		dict[x] = sorted;
+	}
+
 	rl.question('What color suit would you like to see or type (all) to see every choice available:\n', (answer) => {
 	  	var counter = 0;
 
